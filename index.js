@@ -60,9 +60,13 @@ let ulReact = React.createElement(
     React.createElement('li', null, '日本語が難しいです')
 )
 
+    // ReactDom @17
     let root2 = document.getElementById('root2')
-    ReactDOM.render(ulReact, root2)
+    // ReactDOM.render(ulReact, root2)
 
+    // ReactDOM @18
+        let container2 = ReactDOM.createRoot(root2)
+        container2.render(ulReact)
 
 // VD3.
     // <div class="post-item">
@@ -99,8 +103,14 @@ let ulReact = React.createElement(
     )
 
     // Get root element 
-    let root = document.getElementById('root')
+    let container = document.getElementById('root')
     
+    // React @17
     // React-DOM -> render UI
-    ReactDOM.render(divDom2,root)
+    // ReactDOM.render(divDom2,root) 
 
+    // React @18
+    let root = ReactDOM.createRoot(container)
+    root.render(divDom2)
+
+    
