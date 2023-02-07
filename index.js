@@ -60,7 +60,8 @@ let ulReact = React.createElement(
     React.createElement('li', null, '日本語が難しいです')
 )
 
-console.dir(ulReact)
+    let root2 = document.getElementById('root2')
+    ReactDOM.render(ulReact, root2)
 
 
 // VD3.
@@ -94,5 +95,12 @@ console.dir(ulReact)
             className: 'post-item'
         },
         React.createElement('h2', {title: 'Hoc react tai F8'}, 'Study ReactJS'),
-        React,createElement('p', null, 'Learn ReactJS from Zero to Herro' )
+        React.createElement('p', {}, 'Learn ReactJS from Zero to Herro' )
     )
+
+    // Get root element 
+    let root = document.getElementById('root')
+    
+    // React-DOM -> render UI
+    ReactDOM.render(divDom2,root)
+
