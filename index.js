@@ -85,7 +85,9 @@ const courses = [
 
 let CourseItem = ({course}) => (
     <div>   
-        <h2>{course.title}</h2>
+        <h2 onClick={()=>{
+               aleart('Huu Hung Nguyen')
+        }}>{course.title}</h2>
         <img src={course.image_url} />
         <p>{course.description}</p>
         <p>{course.studentsCount}</p>
