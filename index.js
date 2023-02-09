@@ -83,9 +83,9 @@ const courses = [
 ]
 
 
-let CourseItem = ({course}) => (
+let CourseItem = ({course, onClick}) => (
     <div>   
-        <h2>{course.title}</h2>
+        <h2 onClick={() =>onClick(course)}>{course.title}</h2>
         <img src={course.image_url} />
         <p>{course.description}</p>
         <p>{course.studentsCount}</p>
@@ -93,14 +93,22 @@ let CourseItem = ({course}) => (
 )
 
 
-
+// Cantainer
 function App() {
+
+    // useCallback
+    const handleClick = (course) => {
+        console.log(course.title)
+    }
+
+
    return (
             <div id="wrapper">
             {courses.map(course => (
                 <CourseItem 
                     key={course.id}
                     course= {course}
+                    onClick={handleClick}
                 />
             ))}
 
