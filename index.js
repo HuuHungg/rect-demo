@@ -63,19 +63,20 @@
 
 // ----------------------------------
 
+
 // Bai 3
 
-function App() {
+// function App() {
 
-    let firstAccess = true
+//     let firstAccess = true
 
-    return (
-        <div id="wrapper">
-            {firstAccess && <h1>Welcome to F8</h1>}
-        </div>
+//     return (
+//         <div id="wrapper">
+//             {firstAccess && <h1>Welcome to F8</h1>}
+//         </div>
 
-    )
-}
+//     )
+// }
 
 let root = document.getElementById('root')
 let contain = ReactDOM.createRoot(root)
