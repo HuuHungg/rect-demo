@@ -1,83 +1,89 @@
-
-// Bai 1
-// let From = {
-//     Input() {
-//         return <input />
-//     },
-//     Checkbox() {
-//         return <input type="checkbox"/>
-//     }
+// function Button({title}) {
+//     return <button>{title}</button>
 // }
 
 // function App() {
-//     let type = 'Checkbox'
-//     let Component = From[type]
-    
-    
+//     let root2 = "Click change file"
 //     return (
 //         <div id="wrapper">
-//             <Component />
-//         </div>
-
-//     )
-
-// }
-
-// --------------------------------------------
-
-// Bai 2
-
-// function Button({title, href, onClick}) {
-//     let Component = 'button'
-//     let props = {}
-
-//     if(href) {
-//         Component = 'a'
-//         props.href = href
-//     }
-
-//     if (onClick) {
-//         props.onClick = onClick
-//     }
-    
-//     return(
-//         <Component {...props}>{title}</Component>
-        
-//     )
-// }
-
-
-
-// function App() {
-//     return (
-//         <div id="wrapper">
-//             <Button 
-//                 title = "Click me!"
-//                 href = "http://fullstack.edu.vn/"
-//                 onClick = {() => console.log(Math.random())}
-//             />
-
+//             <Button title= {root2} />
+//             {/* <Button title= "Click me!" /> // Cach2 */} 
 //         </div>
 //     )
 // }
 
-// ----------------------------------
 
-
-// Bai 3
+// function Button({children}) {
+//     return <button>{children}</button>
+// }
 
 // function App() {
-
-//     let firstAccess = true
-
 //     return (
 //         <div id="wrapper">
-//             {firstAccess && <h1>Welcome to F8</h1>}
+//             <Button>{"ボタンを直した"}</Button>
 //         </div>
 
 //     )
 // }
+
+
+function Input({label, ...inputProps}) {
+    return (
+        <div>
+            <label>{label}</label>
+            <input {...inputProps} />
+        </div>
+    )
+}
+
+function App() {
+    return (
+        <div id="wrapper">
+            <Input 
+                label="Full Name Course"
+                type = "text"
+                placeholder = "Enter Name..."
+                input="Day la Input"
+                onFocus = {
+                    () => {
+                        console.log(Math.random())
+                    }
+                }
+            />
+
+        </div>
+
+    )
+}
+
 
 let root = document.getElementById('root')
 let contain = ReactDOM.createRoot(root)
-contain.render(<App title="Welcome back!"/>)
+contain.render(<App/>)
+
+
+
+function List({data,children}) {
+    return (
+        <ul>
+            {data.map((...props) => children(...props))}
+        </ul>
+    )
+}
+
+
+function App2() {
+    let cars = ['日本語','英語','ベトナム語']
+    return(
+        <div id="wrapper">  
+            <List data={cars}>
+                {(item,index) => <li key={index}>{item}</li>}
+            </List>
+        </div>
+    )
+}
+
+
+let root3 = document.getElementById('root2')
+let contain2 = ReactDOM.createRoot(root3)
+contain2.render(<App2 />)
